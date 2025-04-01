@@ -1,0 +1,131 @@
+
+import React from 'react';
+import { Layout } from '@/components/Layout';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Droplet, Mail, Phone } from 'lucide-react';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+
+const About = () => {
+  const teamMembers = [
+    {
+      name: 'Shriya N',
+      role: '6th AIML, EWIT',
+      image: '/lovable-uploads/f57fd115-7c0c-4adc-b6e5-d01f8ac7ad0f.png'
+    },
+    {
+      name: 'Smitha KV',
+      role: '6th AIML, EWIT',
+      image: '/lovable-uploads/68bf6a6c-e794-4b1c-8967-bfd80d67d801.png'
+    }
+  ];
+
+  return (
+    <Layout>
+      <div className="container py-12">
+        <div className="mb-12 text-center">
+          <h1 className="text-4xl font-bold mb-4">About AquaPredictor</h1>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            We're dedicated to providing accurate water quality analysis using advanced technology and scientific research.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
+          <Card className="glass">
+            <CardHeader>
+              <CardTitle>Our Mission</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-start space-x-4">
+                <Droplet className="h-8 w-8 text-aqua-600 mt-1" />
+                <div>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    At AquaPredictor, our mission is to make water quality assessment accessible to everyone. We believe that clean water is a fundamental right, and understanding water quality is the first step in ensuring safe water for all.
+                  </p>
+                  <p className="mt-4 text-gray-600 dark:text-gray-300">
+                    Through our innovative prediction technology, we aim to empower individuals, communities, and organizations to make informed decisions about their water sources.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="glass">
+            <CardHeader>
+              <CardTitle>Our Technology</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-600 dark:text-gray-300">
+                AquaPredictor utilizes state-of-the-art machine learning algorithms trained on extensive water quality datasets from around the world. Our system can accurately predict:
+              </p>
+              <ul className="list-disc list-inside mt-2 text-gray-600 dark:text-gray-300 space-y-1">
+                <li>Water contamination types</li>
+                <li>Salinity levels</li>
+                <li>Potential health impacts</li>
+                <li>Source of contamination</li>
+                <li>Treatment recommendations</li>
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
+
+        <h2 className="text-3xl font-bold mb-8 text-center">Our Team</h2>
+        <div className="grid md:grid-cols-2 gap-6 mb-16">
+          {teamMembers.map((member, index) => (
+            <Card key={index} className="glass">
+              <CardHeader className="text-center pb-2">
+                <div className="flex justify-center mb-4">
+                  <Avatar className="h-24 w-24">
+                    <AvatarImage src={member.image} alt={member.name} />
+                    <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
+                  </Avatar>
+                </div>
+                <CardTitle className="text-xl">{member.name}</CardTitle>
+                <CardDescription>{member.role}</CardDescription>
+              </CardHeader>
+            </Card>
+          ))}
+        </div>
+
+        <Card className="glass mb-8">
+          <CardHeader>
+            <CardTitle>Under the Guidance of</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-col md:flex-row md:items-center gap-6">
+              <Avatar className="h-32 w-32 mx-auto md:mx-0">
+                <AvatarImage src="/lovable-uploads/a9f07709-fd20-4353-99db-726089d20117.png" alt="DR. Shashi Shekar TR" />
+                <AvatarFallback>SS</AvatarFallback>
+              </Avatar>
+              <div className="flex flex-col space-y-2 text-center md:text-left">
+                <p className="font-medium text-lg">DR. Shashi Shekar TR</p>
+                <p className="text-gray-600 dark:text-gray-300">Professor - Department of Civil Engineering</p>
+                <p className="text-gray-600 dark:text-gray-300">Treasurer, Zero Waste Society of India (ZWSI-ECSI) - IISc Campus</p>
+                <p className="text-gray-600 dark:text-gray-300">IQAC Coordinator - EWIT</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="glass mb-8">
+          <CardHeader>
+            <CardTitle>Contact Us</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-col space-y-4">
+              <div className="flex items-center space-x-2">
+                <Mail className="h-5 w-5 text-aqua-600" />
+                <span>shashishekhartr@ewit.edu.in</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Phone className="h-5 w-5 text-aqua-600" />
+                <span>+91 99802 11355</span>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </Layout>
+  );
+};
+
+export default About;
