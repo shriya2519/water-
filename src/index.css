@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 100% 99%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 204 80% 45%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 204 94% 94%;
+    --secondary-foreground: 204 80% 25%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 199 89% 48%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 204 80% 45%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 210 100% 99%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 204 80% 45%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 204 94% 94%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 204 80% 45%;
+  }
+
+  .dark {
+    --background: 217 33% 17%;
+    --foreground: 210 40% 98%;
+
+    --card: 217 33% 19%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 217 33% 19%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 204 80% 45%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 32% 25%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 32% 25%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 199 89% 48%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 32% 30%;
+    --input: 217 32% 30%;
+    --ring: 204 80% 45%;
+
+    --sidebar-background: 217 33% 17%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 204 80% 45%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 217 32% 25%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 32% 30%;
+    --sidebar-ring: 204 80% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body {
+    font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+    @apply h-full;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-image: url("/lovable-uploads/75cb90a7-5701-4dca-a049-e42027aef574.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: -1;
+  }
+
+  .dark body::before {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  #root {
+    @apply h-full max-w-none p-0 m-0;
+  }
+
+  /* Custom scrollbar styles */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-blue-200 dark:bg-blue-900 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-blue-300 dark:bg-blue-800;
+  }
+
+  /* Glass card styles */
+  .glass {
+    @apply bg-white/70 dark:bg-black/70 backdrop-blur-md border border-blue-100/30 dark:border-blue-900/30 shadow-glass transition-all duration-300;
+  }
+  
+  .glass:hover {
+    @apply shadow-glass-hover;
+  }
+
+  /* Updated section styles to use glass effect */
+  .bg-white, .bg-gray-50, .bg-gray-100 {
+    @apply bg-transparent backdrop-blur-sm;
+  }
+
+  .dark .bg-gray-950, .dark .bg-gray-900, .dark .bg-gray-800 {
+    @apply bg-transparent backdrop-blur-sm;
+  }
+
+  /* Custom border styles */
+  .border-pattern {
+    @apply border-2 border-blue-500 relative;
+    background-image: linear-gradient(45deg, transparent 98%, var(--tw-border-opacity) 0), linear-gradient(-45deg, transparent 98%, var(--tw-border-opacity) 0), linear-gradient(135deg, transparent 98%, var(--tw-border-opacity) 0), linear-gradient(-135deg, transparent 98%, var(--tw-border-opacity) 0);
+    background-size: 10px 10px;
+    background-position: 0 0, 0 100%, 100% 0, 100% 100%;
+    background-repeat: no-repeat;
+  }
+
+  /* Animations */
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  /* Page transition */
+  .page-transition-enter {
+    @apply opacity-0;
+  }
+  
+  .page-transition-enter-active {
+    @apply opacity-100 transition-opacity duration-300;
+  }
+  
+  .page-transition-exit {
+    @apply opacity-100;
+  }
+  
+  .page-transition-exit-active {
+    @apply opacity-0 transition-opacity duration-300;
+  }
+  
+  /* Decorative elements */
+  .indian-border {
+    @apply relative p-6;
+  }
+  
+  .indian-border::before {
+    content: "";
+    @apply absolute inset-0 border-2 border-blue-500/50 rounded-lg;
+    mask-image: repeating-linear-gradient(0deg, #000 0%, #000 5%, transparent 5%, transparent 10%);
+    mask-size: 20px 20px;
+  }
+  
+  .mandala-bg {
+    background-image: radial-gradient(circle at center, rgba(3, 105, 161, 0.05) 0%, transparent 70%);
+    background-size: 120px 120px;
+    background-position: center;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply border border-blue-200 text-blue-700 hover:bg-blue-50 font-medium py-2 px-4 rounded-md transition-colors;
+  }
+  
+  .card-indian {
+    @apply glass rounded-lg border-t-4 border-t-blue-500 p-6;
+  }
+  
+  .text-gradient-blue {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500;
+  }
+}
